@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\homecontroller;
 use App\Models\rooms;
+use App\Models\delete;
 
 
 /*
@@ -57,4 +58,13 @@ Route::get('list_rooms', function () {
     $list_rooms = DB::table('rooms')->get();
 
     return view('dashboard', ['list_rooms' => $list_rooms]);
+});
+
+Route::post('/delete', function () {
+    echo    $delete  = request('delete');
+   // DB::table('rooms')->whereIn('id', $ids_to_delete)->delete();
+
+$list_rooms = DB::table('rooms')->get();
+
+return view('dashboard', ['list_rooms' => $list_rooms]);
 });

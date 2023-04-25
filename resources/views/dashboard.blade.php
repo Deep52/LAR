@@ -133,8 +133,10 @@
                                         <td>{{$data->r_type}}</td>
                                         <td>{{$data->r_cat}}</td>
                                         <td>{{$data->r_price}}</td>
-                                        <td > <a herl="#"  ><button class="btn btn-default">Delete</button> </a></td>
+                                    <form method="post" action="/delete">
 
+                                        <td > <input type="hidden" name="delete"  value="{{$data->id}}"><button type="submit"class="btn btn-default">Delete</button></td>
+                                    </form>
 
                                     </tr>
                                     @endforeach
