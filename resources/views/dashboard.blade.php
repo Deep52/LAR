@@ -61,14 +61,21 @@
                         <div class="col-md-6">
                         <h5></h5>
                         <div class="table-responsive">
-                            <form action="" method="head">
+                            <form action="/rooms" method="post">
+                                @csrf
                             <table class="table">
                                 <thead>
+
                                     <tr>
+                                        <th></th>
+                                        <th>@if($message = Session::get('success'))
+                                            <div class="alert alert-success success">
+                                                <p>{{$message}}</p>
+                                            </div>
+                                            @endif</th>
+                                        <th></th>
                                         <th> </th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
+
                                     </tr>
                                     <tbody>
                                         <tr class="success">
@@ -91,6 +98,12 @@
                                         </tr>
                                         <tr class="success">
 
+                                            <td>Price </td>
+                                            <td><input type="text" name="r_p"></td>
+
+                                        </tr>
+                                        <tr class="success">
+
                                             <td> </td>
                                             <td><input type="submit" name="sb" value="Submit"></td>
 
@@ -107,34 +120,28 @@
                                         <th>Room Number</th>
                                         <th>Type</th>
                                         <th>Categories</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
                                     </tr>
 
                                 </thead>
                                 <tbody>
-                                    <tr class="success">
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                    @foreach($list_rooms as $key => $data)
+                                    <tr @if($data->id % 2 == 0) class="success" @else class="warning" @endif >
+                                        <td>{{$data->id}}</td>
+                                        <td>{{$data->number}}</td>
+                                        <td>{{$data->r_type}}</td>
+                                        <td>{{$data->r_cat}}</td>
+                                        <td>{{$data->r_price}}</td>
+                                        <td > <a herl="#"  ><button class="btn btn-default">Delete</button> </a></td>
+
+
                                     </tr>
-                                    <tr class="info">
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
+                                    @endforeach
+
+
                                     </tr>
-                                    <tr class="warning">
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr class="danger">
-                                        <td>4</td>
-                                        <td>John</td>
-                                        <td>Smith</td>
-                                        <td>@jsmith</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
