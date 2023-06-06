@@ -9,8 +9,11 @@
 <link rel="stylesheet" href="css/layout.css" type="text/css" />
 <link rel="stylesheet" href="css/navi.css" type="text/css" />
 <link rel="stylesheet" href="css/tables.css" type="text/css" />
+
 </head>
 <body id="top">
+
+
 <div class="p_wrapper col1">
   <div id="topbar">
     <div id="search">
@@ -20,7 +23,7 @@
           <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
           <input type="submit" name="go" id="go" value="GO" />
           <div  id="log_reg"> @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" style="position: absolute;">
                 @auth
 
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -51,7 +54,6 @@
                         {{ __('Profile') }}
                     </x-dropdown-link>
                 @endauth
-            </div>
         @endif</div>
         </div>
         </fieldset >

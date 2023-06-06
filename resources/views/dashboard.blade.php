@@ -20,6 +20,11 @@
                 </ul>
             </div>
 
+
+
+
+
+
         </div>
     </div>
             <!-- /. NAV TOP  -->
@@ -29,7 +34,7 @@
                         <li class="text-center user-image-back">
                             <img src="assets/img/find_user.png" class="img-responsive" />
 
-                        </96li>
+                        </li>
 
 
                         <li>
@@ -105,7 +110,8 @@
                                         <tr class="success">
 
                                             <td> </td>
-                                            <td><input type="submit" name="sb" value="Submit"></td>
+                                            <td><input type="submit" name="sb" value="Submit" class="btn btn-default" style="    background-color: palegreen;
+                                                color: black;"></td>
 
                                         </tr>
                                 </thead>
@@ -134,8 +140,9 @@
                                         <td>{{$data->r_cat}}</td>
                                         <td>{{$data->r_price}}</td>
                                     <form method="post" action="/delete">
-
-                                        <td > <input type="hidden" name="delete"  value="{{$data->id}}"><button type="submit"class="btn btn-default">Delete</button></td>
+                                        @csrf
+                                        <td > <input type="hidden" name="delete" value="{{$data->id}}"><button type="submit"class="btn btn-default" style="    background-color: orangered;
+                                            color: floralwhite;" >Delete</button></td>
                                     </form>
 
                                     </tr>
